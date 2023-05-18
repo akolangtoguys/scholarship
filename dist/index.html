@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="output.css">
+    <title> SCHOLARSHIP </title>
+</head>
+<body>
+
+    <!--NAV-BAR 1-->
+    <div class="flex items-center justify-between bg-myPink">
+     <img id="burgerBtn" src="/dist/pictures/hamburgerBtn.png" alt="hamburgerBtn" class="w-6 lg:hidden cursor-pointer ml-5">
+      <nav id="navLinks" class="lg:static absolute lg:flex top-[64px] hidden lg:min-h-fit min-h-[60vh] lg:w-auto w-full left-0 items-center z-50 bg-myPink">
+       <ul class="flex lg:flex-row flex-col lg:items-center gap-10 lg:gap-0 md:ml-[400px] md:mt-[50px] mt-[50px] lg:mt-0 lg:ml-0">
+        <li class="px-7 py-5 lg:border-r-2 border-black hover:transform hover:scale-110 transition duration-100 hover:font-bold"> HOME </li>
+         <li class="px-7 py-5 lg:border-r-2 border-black hover:transform hover:scale-110 transition duration-100 hover:font-bold"> BROWSE SCHOLARSHIPS </li>
+          <li class="px-7 py-5 lg:border-r-2 border-black hover:transform hover:scale-110 transition duration-100 hover:font-bold"> ABOUT </li>
+           <li class="px-7 py-5 hover:transform hover:scale-110 transition duration-100 hover:font-bold"> CONTACTS </li>                               
+            </ul>
+             </nav>
+
+             <script>
+                const navLinks = document.getElementById('navLinks');
+const burgerBtn = document.getElementById('burgerBtn');
+
+
+burgerBtn.addEventListener('click', ()=>{
+    if(navLinks.classList.contains('hidden')){
+        navLinks.classList.remove('hidden');
+
+    }else{
+        navLinks.classList.add('hidden');
+
+    }
+
+})
+             </script>
+          
+     <!--SEARCH BAR-->
+      <!--<div class="flex items-center gap-3">
+        <input class="py-2 px-5 rounded-md border border-myRed focus:outline-none bg-white bg-opacity-50" type="search" placeholder="Search" value="">
+        <img src="/dist/pictures/search.png" alt="searchLogo" class="absolute ml-[180px] cursor-pointer">
+      </div>-->
+      <div class="flex items-center gap-3">
+        <input class="py-2 px-8 rounded-md border border-myRed focus:outline-none bg-white bg-opacity-50" type="search" placeholder="Search" value="">
+        <img src="/dist/pictures/search.png" alt="searchLogo" class="absolute ml-[214px] cursor-pointer">
+      </div>
+
+     <!--NAV-BAR 2-->
+      <div class="flex items-center">
+       <button class="px-5 py-5 border-r-2 border-black hidden md:block hover:transform hover:scale-110 transition duration-100 hover:font-bold" onclick="showSignupForm()"> SIGN UP </button>
+        <button class="px-5 py-5 hover:transform hover:scale-110 transition duration-100 hover:font-bold" style="margin-right: 5px;" onclick="showLoginForm()"> LOG IN </button> </a>
+         </div>
+          </div>
+
+
+<!--LOG IN-->
+<div class="fixed z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 hidden bg-white p-4 rounded-md shadow-lg" id="login-form" style="width: 400px;">                      
+ <div class="flex justify-between mb-4">
+  <h2 class="text-3xl font-bold text-myRed"> Login </h2>
+   <button class="text-myRed hover:text-red-500 focus:outline-none" onclick="showLoginForm()">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+      </svg> 
+       </button> 
+        </div>
+
+         <form>
+        <div class="mb-4">
+       <input type="email" id="email" name="email" class="block w-full border-myRed border-2 rounded-md py-2 px-3 focus:border-transparent" 
+       placeholder="Email">
+      </div>
+
+      <div class="mb-4">
+     <input type="password" id="password" name="password" class="block w-full border-myRed border-2 rounded-md py-2 px-3 focus:border-transparent" 
+     placeholder="Password">
+    </div>
+
+    <div style="display: flex; justify-content: center;">
+   <button class="text-white rounded-md py-2 px-4 font-bold" onclick="login()" style="background-color: #9c3337;"> Login </button>
+  </div>
+ </form>
+</div>
+    <script>
+      function showLoginForm()
+       {
+        var form = document.getElementById('login-form');
+         form.classList.toggle('hidden');
+          }         
+           function login() 
+            {
+             alert('Login successful!');
+              }
+               </script>
+               
+
+
+<!--SIGN UP-->
+<div class="fixed z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 hidden bg-white p-4 rounded-md mt-10" id="signup-form" style="width: 550px;">                      
+ <div class="flex justify-between mb-4">
+  <h2 class="text-3xl font-bold text-myRed"> Signup </h2>
+  <button class="text-myRed hover:text-red-500 focus:outline-none" onclick="showSignupForm()">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+       </button>
+        </div>
+        
+        <div class="container">
+          <form onsubmit="return validateForm();">
+            <h2 class="text-black"> Enter your details: </h2>
+                
+              <div class="mt-5 mb-4">
+                <label for="dropdown"> </label>
+                <select id="dropdown" style="width: 100%; height: 44px; text-align: center; font-size: 1.1rem; border: 2px solid #9c3337; border-radius: 6px;" class="appearance-none focus:outline-none focus:border-myRed focus:shadow-none">
+                    <option value="option1">Student</option>
+                  <option value="option2">Teacher</option>
+                  <option value="option2">Admin</option>
+                </select>
+              </div>
+          
+              <div class="mb-4 flex justify-between">
+                <input type="text" id="lastname" name="lastname" class="block w-1/3 border-myRed border-2 rounded-md py-2 px-3 focus:border-transparent" style="margin-right: 5px;" placeholder="Last Name">
+                <input type="text" id="firstname" name="firstname" class="block w-1/3 border-myRed border-2 rounded-md py-2 px-3 focus:border-transparent" style="margin-right: 5px;" placeholder="First Name">
+                <input type="text" id="middlename" name="middlename" class="block w-1/3 border-myRed border-2 rounded-md py-2 px-3 focus:border-transparent" placeholder="Middle Name">
+              </div>
+              
+              
+              <div class="mb-4 flex justify-between">
+                <input type="text" id="gender" name="gender" class="block w-1/3 border-myRed border-2 rounded-md py-2 px-3 focus:border-transparent"style="margin-right: 5px;" placeholder="Female/Male">
+                <input type="text" id="age" name="age" class="block w-1/3 border-myRed border-2 rounded-md py-2 px-3 focus:border-transparent"style="margin-right: 5px;" placeholder="Age">
+                <input type="text" id="birthdate" name="birthdate" class="block w-11/12 border-myRed border-2 rounded-md py-2 px-3 focus:border-transparent" style="margin-right: 5px;" placeholder="Birthdate (mm/dd/yy)">
+              </div>
+              
+          
+              <div class="mb-4">
+                <input type="text" id="address" name="address" class="block w-full border-myRed border-2 rounded-md py-2 px-3 focus:border-transparent" placeholder="Address">
+              </div>
+          
+              <div class="mb-4 flex flex-wrap justify-between">
+                <input type="email" id="email" name="email" class="block border-myRed border-2 rounded-md py-2 px-3 focus:border-transparent w-full" style="margin-right: 5px;" placeholder="Email">
+                <input type="text" id="contact" name="contact" class="block border-myRed border-2 rounded-md py-2 px-3 focus:border-transparent w-full" placeholder="Contact Number">
+              </div>
+
+              <div class="mb-4">
+                <input type="password" id="password" name="password" class="block w-full border-myRed border-2 rounded-md py-2 px-3 focus:border-transparent" placeholder="Password">
+              </div>
+          
+              <div class="mb-4">
+                <input type="password" id="confirmpassword" name="confirmpassword" class="block w-full border-myRed border-2 rounded-md py-2 px-3 focus:border-transparent" placeholder="Re-type your password">
+              </div>
+
+  <div style="display: flex; justify-content: center;">
+   <button class="text-white rounded-md py-2 px-4 font-bold" onclick="signup()" style="background-color: #9c3337;"> Signup </button>
+    </div>
+     </form>
+      </div>
+       </div>
+       
+   <script>
+     function showSignupForm() 
+      {
+       var form = document.getElementById('signup-form');
+        form.classList.toggle('hidden');
+         }         
+             
+   function validateForm() 
+   {
+  const lastNameField = document.getElementById('lastname');
+  const firstNameField = document.getElementById('firstname');
+
+  const ageField = document.getElementById('age');
+  ageField.addEventListener('input', function(e) {
+  const value = e.target.value;
+  // Check if the input is a two-digit integer
+  if (!/^\d{2}$/.test(value)) 
+  {
+    ageField.setCustomValidity('Please enter a two-digit integer.');
+  } else {
+    ageField.setCustomValidity('');
+  }
+});
+  const birthdateField = document.getElementById('birthdate');
+  const addressField = document.getElementById('address');
+  const emailField = document.getElementById('email');
+  const contactField = document.getElementById('contact');
+  const passwordField = document.getElementById('password');
+  const confirmpasswordField = document.getElementById('confirmpassword');
+
+  if (lastNameField.value.trim() === '' || firstNameField.value.trim() === '' || birthdateField.value.trim() === '' || addressField.value.trim() === '' || emailField.value.trim() === '' || contactField.value.trim() === '' || passwordField.value.trim() === '' || confirmpasswordField.value.trim() === '') 
+  {
+    alert('INPUT A DATA/INFORMATION EACH FIELD!');
+    return false;
+  }
+    alert('Sign up successfully!');
+   return true
+}
+
+   
+    
+              </script>
+          
+
+
+<!--FIRST-PAGE-->
+ <div class="flex w-full h-[100vh] bg-myPink ">
+  <div class="absolute items-center md:ml-[250px] lg:mt-[200px] md:mt-[200px] mt-[280px] lg:ml-[50px] sm:mt-[250px] sm:ml-[150px] ml-[50px]">
+   <h1 class="lg:text-[120px] md:text-[80px] text-[70px] font-bold leading-none text-myMustard hover:scale-105 transition duration-500">SOAR HIGH</h1>
+    <h2 class="lg:text-[80px] md:text-[40px] text-[40px] font-bold leading-none lg:ml-[100px] ml-[120px] md:ml-[180px] text-myRed hover:scale-105 transition duration-500">BULSUANS!</h2>
+     </div>
+    <img src="/dist/pictures/bg2.jpg" alt="backgroundImg" class="w-full object-cover hidden lg:block">
+   <img src="/dist/pictures/bsuLogo.png" alt="backgroundLogo" class="lg:hidden flex w-full h-screen object-cover ">
+  </div>
+      
+    <!--
+        <div class="bg-[url('/dist/pictures/BSU.png')] w-full h-[100vh] bg-no-repeat bg-cover hidden lg:block"> </div> 
+    -->
+
+
+<!--SECOND PAGE-->
+<div class="w-full h-[100vh] md:bg-[url(/dist/pictures/bsuLogo.png)] md:bg-white bg-myPink object-cover bg-no-repeat bg-center lg:block">
+ <div class="flex justify-center align-middle">
+  <h1 class="lg:text-[70px] md:text-[50px] text-myRed text-[30px] font-bold"> BROWSE SCHOLARSHIPS </h1>
+   </div>
+
+<div class="lg:w-[80%] md:w-[90%] m-auto flex md:flex-row flex-col justify-between items-center md:mt-[150px] mt-10">
+   
+    <div class="bg-white w-[260px] h-[360px] flex flex-col items-center shadow-xl md:mb-0 mb-10 hover:scale-105 duration-500 ease-in-out">
+   <div class="bg-PinkCard w-[260px] h-[160px] absolute mb-[500px] flex flex-col justify-center items-center hover:scale-105 duration-500 ease-in-out">
+  <h3 class="text-[20px] font-bold border-b-2 border-black py-2 px-[100px]"> TITLE </h3>
+ <h3 class="text-[20px] font-bold py-2"> AMOUNT </h3>
+</div> 
+
+<div class="flex flex-col mt-[180px] leading-[65px]">
+ <h3 class="mr-[160px] font-bold"> DEALINE: </h3>
+  <h3 class="text-center"> Description </h3>
+   </div>
+    <a href="view1.html" target="_blank">
+        <Button class="bg-pink-700 w-[120px] py-2 rounded-md  text-white hover:bg-pink-800 hover:border-pink-800"> VIEW </Button>
+    </a>
+       </div>
+
+    <div class="bg-white w-[260px] h-[360px] flex flex-col items-center shadow-xl md:mb-0 mb-10 hover:scale-105 duration-500 ease-in-out">
+   <div class="bg-PinkCard w-[260px] h-[160px] absolute mb-[500px] flex flex-col justify-center items-center hover:scale-105 duration-500 ease-in-out">
+  <h3 class="text-[20px] font-bold border-b-2 border-black py-2 px-[100px]"> TITLE </h3>
+ <h3 class="text-[20px] font-bold py-2"> AMOUNT </h3>
+</div>
+
+                <div class="flex flex-col mt-[180px] leading-[65px]">
+                    <h3 class="mr-[160px] font-bold">DEALINE:</h3>
+                    <h3 class="text-center">Description</h3>
+                </div>
+                <a href="view2.html" target="_blank">
+                    <Button class="bg-pink-700 w-[120px] py-2 rounded-md  text-white hover:bg-pink-800 hover:border-pink-800"> VIEW </Button>
+                </a>
+            </div>
+
+            <div class="bg-white w-[260px] h-[360px] flex flex-col items-center shadow-xl md:mb-0 mb-10 hover:scale-105 duration-500 ease-in-out">
+                <div class="bg-PinkCard w-[260px] h-[160px] absolute mb-[500px] flex flex-col justify-center items-center hover:scale-105 duration-500 ease-in-out">
+                    <h3 class="text-[20px] font-bold border-b-2 border-black py-2 px-[100px]">TITLE</h3>
+                    <h3 class="text-[20px] font-bold py-2">AMOUNT</h3>
+                </div>
+
+                <div class="flex flex-col mt-[180px] leading-[65px]">
+                    <h3 class="mr-[160px] font-bold">DEALINE:</h3>
+                    <h3 class="text-center">Description</h3>
+                </div>
+                <a href="view3.html" target="_blank">
+                    <Button class="bg-pink-700 w-[120px] py-2 rounded-md  text-white hover:bg-pink-800 hover:border-pink-800"> VIEW </Button>
+                </a>
+            </div>
+        </div>      
+    </div>
+
+    <!--FOOTER-->
+    <div class="w-full md:h-[50vh] h-[200vh] flex bg-myPink items-end">
+        <div class="w-full md:h-[50vh] h-[100vh] flex bg-black md:justify-between flex-col md:flex-row ">
+             <div class="md:w-[300px] w-full flex flex-col md:justify-between md:ml-20 items-center mt-10">
+                      <img src="/dist/pictures/logo1.png" alt="bsuLogo" class="w-[200px] h-[200px] md:mb-0 mb-[40px] hover:scale-105 transition duration-500">
+                    <div class="mb-5">
+                      <h6 class="text-white hover:text-myMustard"> Copyright &copy; 2023 </h6>
+                      <h6 class="text-white hover:text-myMustard"> Copyright &copy; 2023 </h6>
+                      <h6 class="text-white hover:text-myMustard"> GROUP 5 </h6>
+                    </div>
+             </div>
+
+             <div class="md:w-[700px] w-full mr-[100px] flex md:justify-around flex-col md:flex-row items-center">
+                <div class="mt-[50px] md:leading-10 text-white">
+                    <h3 class="text-[25px] hover:text-myMustard"> ABOUT US </h3>
+                    <h6 class="text-[15px] hover:text-myMustard"> School History </h6>
+                    <h6 class="text-[15px] hover:text-myMustard"> Mission </h6>
+                    <h6 class="text-[15px] hover:text-myMustard"> Vission </h6>
+                </div>
+
+                
+                <div  class="mt-[50px] md:leading-10 ml-5 text-white">
+                    <h3 class="text-[25px] hover:text-myMustard"> CONTACT US </h3>
+                    <h6 class="text-[15px] hover:text-myMustard"> Bulacan, Bulacan </h6>
+                    <h6 class="text-[15px] hover:text-myMustard"> @gmail.com </h6>
+                    <h6 class="text-[15px] hover:text-myMustard"> 09090909090 </h6>    
+                </div>
+
+             </div>
+        </div>
+
+    </div>
+    
+    <script src="index.js"></script>
+</body>
+</html>
