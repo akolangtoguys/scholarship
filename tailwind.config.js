@@ -8,7 +8,6 @@ module.exports = {
         myMustard:'#b9854b',
         myRed:'#9c3337',
         PinkCard:'#ffbed2',
-        
       }
     },
   },
